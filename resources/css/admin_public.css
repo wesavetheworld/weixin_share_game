@@ -1,0 +1,189 @@
+body,div,span,a,iframe,p{
+	margin: 0;
+	border: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+#top_container{
+	width: 100%;
+	/*height: 35px;*/
+	padding: 10px;
+	padding-right: 20px;
+}
+.float_left{
+	float: left;
+}
+.float_right{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+#main_container{
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid #ccc;
+}
+#left_nav_container{
+	height: 100%;
+	width: 290px;
+	float: left;
+	position: fixed;
+	left: 0;
+	top: 40;
+	padding: 20px;
+}
+#right_iframe{
+	background: #ccc;
+	border-left: 1px solid #ccc;
+	position: fixed;
+	height: 100%;
+	left: 300px;
+	top: 40;
+	overflow: auto;
+}
+.category_container span{
+	margin-right: 20px;
+	text-align: right;
+	cursor: pointer;
+}
+.category_container span i{
+	margin-right: 5px;
+}
+.ios_button{
+	max-width: 200px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+#add_new_good_cate i{
+	margin-right: 10px;
+}
+#re_order_button i{
+	margin-right: 10px;
+}
+.order_num{
+	width: 100px;
+	height: 25px;
+	border: 0;
+	padding: 5px 10px;
+}
+.under_edit{
+	border:1px solid #007aff;
+	border-radius: 5px;
+}
+#confirm_order_button{
+	display: none;
+}
+#right_search_container{
+	float: right;
+	display: inline;
+}
+#food_manage_table img{
+	width: 70px;
+	border-radius: 5px;
+}
+#food_manage_table th{
+	text-align: center;
+}
+#food_manage_table  .checkbox{
+	display: block;
+	margin-bottom: 5px;
+}
+#food_manage_table .op_bt{
+	display: block;
+	margin-bottom: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+#food_manage_table .op_bt i{
+	margin-right: 5px;
+}
+#food_manage_table .good_name{
+	width: 200px;
+}
+#goods_body i{
+	margin-right: 5px;
+}
+#shop_promote_box{
+	margin: 20px 0;
+}
+#shop_promote_box .checkbox{
+	display: block;
+	margin-bottom: 5px;
+}
+body{
+	overflow: auto;
+}
+#add_or_edit_good{
+	width: 200px;
+}
+#add_or_edit_good i{
+	margin-right: 5px;
+}
+#select_picture{
+	margin: 20px 0;
+}
+#select_picture i{
+	margin-right: 5px;
+}
+#picture_upload_container{
+	width: 100%;
+	height: 500px;
+	display: none;
+}
+#slider_list_container img{
+	width: 150px;
+}
+#tongji_top{
+	width: 100%;
+	text-align: center;
+}
+#tongji_chart{
+	width: 100%;
+	margin-top: 20px;
+}
+#basic_set_main i{
+	margin-right: 5px;
+}
+
+#basic_set_main .color-green{
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+#basic_set_main .color-red{
+	margin-right: 10px;
+	cursor: pointer;
+}
+#basic_set_main .color-blue{
+	display: none;
+	cursor: pointer;
+}
+.right_fiv{
+	margin-right: 5px;
+}
+.width_200{
+	width: 200px;
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+#show_left_con{
+	position: fixed;
+	top: 1px;
+	right: 120px;
+	display: none;
+}
+#add_new_user{
+	display: none;
+
+}
+#send_user_mess_container{
+	display: none;
+}
