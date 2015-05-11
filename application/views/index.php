@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<title>乐享赚</title>
+	<title>好享赚</title>
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/frozen.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/global.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/animate.css">
@@ -79,9 +79,12 @@
 	.copy-right{
 		color: #E6DADA;
 		text-align: center;
+		margin: 0 auto;
+		width: 100%;
 		/*padding-top: 20px;*/
 		position: fixed;
-		bottom: 0px;
+		bottom: 10px;
+		font-size: 12px;
 	}
 	.rule{
 		text-align: center;
