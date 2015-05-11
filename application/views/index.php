@@ -5,10 +5,10 @@
 	<meta name="author" content="三果儿 网络科技">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<title>乐享</title>
+	<title>乐享赚</title>
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/frozen.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/global.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/animate.css">
@@ -35,6 +35,7 @@
 	.baner-pic{
 		width:55%;
 		margin:0px auto;
+		margin-bottom: 10px;
 	}
 	.index-container h1{
 		width:80%;
@@ -78,7 +79,9 @@
 	.copy-right{
 		color: #E6DADA;
 		text-align: center;
-		padding-top: 20px;
+		/*padding-top: 20px;*/
+		position: fixed;
+		bottom: 0px;
 	}
 	.rule{
 		text-align: center;
@@ -92,10 +95,11 @@
 <body ontouchstart="">
 	<div class="index-container">
 		<div class="baner-pic">
-			<img src="/resources/frozenui/1.2.1/img/banner1-1.png">
+			<!-- <img src="/resources/frozenui/1.2.1/img/banner1-1.png"> -->
+			<img src="/resources/frozenui/1.2.1/img/logo.png">
 		</div>
-		<h1><img src="/resources/frozenui/1.2.1/img/banner1-2.png"></h1>
-		<h4>随时随地转发，轻轻松松赚钱！</h4>
+		<h1><img src="/resources/frozenui/1.2.1/img/banner1-21.png"></h1>
+		<!-- <h4>随时随地转发，轻轻松松赚钱！</h4> -->
 		<div class="join-number"><img src="/resources/frozenui/1.2.1/img/banner3-1.png"><span class="num">100</span></div>
 		<div id="day"><div></div></div>
 		<div id="start-share">
