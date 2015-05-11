@@ -689,7 +689,7 @@ class M_enpei extends CI_Model
         $data = array(
           'read_duration' => $read_duration,
           'to_bottom' => $to_bottom ,
-          'share_type' => $share_type ,
+          // 'share_type' => $share_type ,
           'u_lbs_x' => $u_lbs_x ,
           'u_lbs_y' => $u_lbs_y ,
           'u_address' => $u_address 
@@ -702,6 +702,32 @@ class M_enpei extends CI_Model
         $return = true;
         return $return;
     }
+
+
+    /**
+     *  update_article_share_type
+     *  更新多叉树
+     *
+     *  @author leo
+     *  @access public
+     *  @param $pid,$uid,$uip,$read_duration,$to_bottom,$share_type,$u_lbs,$u_address
+     *  @since 1.0
+     *  @return bool(true成功插入)
+     */
+    public function update_article_share_type($pid,$uid, $share_type)
+    {
+        $return = false;
+        $data = array(
+          'share_type' => $share_type 
+          );
+
+        $this->db->where('pid', $pid);
+        $this->db->where('uid', $uid);
+        $this->db->update('article_read_detail', $data);
+        $return = true;
+        return $return;
+    }
+
 
 
     /**

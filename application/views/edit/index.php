@@ -167,6 +167,7 @@
             $ar_author_pic = '';
             $total_limit = '';
             $one_limit = '';
+            $abstract = "请输入摘要";
         }else{
             foreach ($article as $key => $value) {
                 $title = $value['ar_title'];
@@ -174,6 +175,7 @@
                 $remark = $value['ar_remark'];
                 $ar_author = $value['ar_author'];
                 $ar_author_pic = $value['ar_author_pic'];
+                $abstract = $value['ar_abstract'];
             }
             $total_limit = $limit['limit_total_price'];
             $one_limit = $limit['limit_person_price'];
@@ -200,6 +202,14 @@
         <span style="font-size: 28px;">个人金额:</span>
         <span><input style="width: 60%;font-size: 25px;" type="text" id="one_limit" value="<?=$one_limit?>"></span>  
     </div>
+
+    <div style="margin: 0 10px;">
+        <span style="font-size: 28px;">摘&nbsp&nbsp&nbsp&nbsp要:</span>
+    </div>
+    <div style="margin: 0 10px;">
+        <textarea id="abstract" style="font-size: 16px" rows="7" cols="110"><?=$abstract?></textarea>
+    </div>
+
 
     <div id="shou_pic">
         <div id="altContent"></div>
@@ -268,6 +278,7 @@
         var author_id = $("#author_id").val();
         var one_limit = $("#one_limit").val();
         var total_limit = $("#total_limit").val();
+        var abstract = $("#abstract").val();
         var src_logo = '';
         if (style>0) {
             src_logo=$("#logo_img").find("img").attr("src");
@@ -295,7 +306,8 @@
                     src_logo:src_logo,
                     author_id:author_id,
                     one_limit:one_limit,
-                    total_limit:total_limit
+                    total_limit:total_limit,
+                    abstract:abstract
                 },  
                 success: function(data){
                     // alert(data);

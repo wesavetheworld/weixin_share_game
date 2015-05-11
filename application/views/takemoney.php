@@ -5,7 +5,7 @@
 	<meta name="author" content="三果儿 网络科技">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<title>用户提现</title>
@@ -64,7 +64,7 @@
 	.do-take{
 		background-color: #ffffff;
 		width: 100%;
-		margin-top:15px;
+		margin-top:10px;
 	}
 	.save-take-num{
 		display: block;
@@ -111,6 +111,43 @@
 	.show_code{
 		display: none;
 	}
+	.ui-icon-close{
+		display: none;
+	}
+	.success-take-tip{
+		display: none;
+		/*font-size: 12px;*/
+		text-align: center;
+		padding:0px!important;
+		margin-top: -10px;
+	}
+	.before-take-tip i:before {
+	background: url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon.png?_bid=306) no-repeat -26px 0px;
+	-webkit-background-size: 80px auto;
+	content: "";
+	display: block;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	left: 4px;
+	top: -9px;
+	}
+	.success-take-tip i:before{
+		background: url(http://i.gtimg.cn/vipstyle/frozenui/1.2.0/img/icon.png?_bid=306) no-repeat -25px 0px;
+		-webkit-background-size: 150px auto;
+		background-position: 0 -25px;
+		content: "";
+		display: block;
+		width: 23px;
+		height: 23px;
+		position: absolute;
+		left: 0px;
+		top: -13px;
+	}
+	.before-take-tip{
+		font-size: 12px;
+		padding: 15px 0px 0px 0px!important;
+	}
 	</style>
 </head>
 <body ontouchstart="">
@@ -131,20 +168,25 @@
 				</p>
 				
 			</div>
+			<div class="ui-tips ui-tips-info before-take-tip">
+			   	<p><i></i>注：本次体验提现金额为0.2元</p>
+			   	 <p>每人可体验一次</p>
+			     <p>提现功能于5月30日正式开放</p>
+			</div>
 			<div class="take-num do-take take-num-form-box">
 				<div class="ui-form ui-border-t">
 				    <form action="#" >
 				        <div class="ui-form-item ui-border-b">
 				            <label for="#">金额</label>
 				            <input type="tel" placeholder="提现金额" id="take-num" value="0.20" readonly>
-				            <a href="#" class="ui-icon-close"></a>
+				            <a href="javascript:;" class="ui-icon-close"></a>
 				        </div>
 				        <div class="ui-form ">
 				            <form action="#" >
 				                <div class="ui-form-item ui-form-item-l ui-border-b">
 				                    <label class="ui-border-r"> +86</label>
 				                    <input type="tel" id="phone-num" placeholder="请输入手机号码">
-				                    <a href="#" class="ui-icon-close"></a>
+				                   <a href="javascript:;" class="ui-icon-close"></a>
 				                </div>
 				            </form>
 				        </div>
@@ -153,8 +195,9 @@
 				                <div class="ui-form-item ui-form-item-r ui-border-b">
 				                    <input type="tel" id="phone-code" placeholder="请输入验证码">
 				                    <!-- 若按钮不可点击则添加 disabled 类 -->
+				                     <a href="javascript:;" class="ui-icon-close"></a>
 				                    <button type="button" class="ui-border-l get-s-code " >获取验证码</button>
-				                    <a href="#" class="ui-icon-close"></a>
+				                   
 				                </div>
 				            </form>
 				        </div>
@@ -169,13 +212,16 @@
 			<div class="take-btn">
 				<a href="javascript:void(0)" id="save-take-num" class="save-take-num">申请</a>
 			</div>
+			<div  class="ui-tips ui-tips-success success-take-tip">
+			    <i></i>提现申请成功请扫描二维码领取红包
+			</div>
 			<div class="show_code">
 				<div class="code-box take-money-notes">
 					<div>
 						<img src="http://share.kejixi.com/resources/frozenui/1.2.1/img/sharecode.png">
 					</div>
 					<div class="code_notice">
-						长按二维码加好友领取红吧！
+						长按二维码加好友领取红包吧！
 					</div>
 				</div>
 			</div>
@@ -324,6 +370,8 @@
 				   		// alert('提交成功');
 				   		$('#save-take-num').hide();
 				   		$('.take-num-form-box').hide();
+				   		$('.before-take-tip').hide();
+				   		$('.success-take-tip').show();
 				   		$('.show_code').show();
 
 				   	}else{
@@ -331,8 +379,31 @@
 				   	};
 				});
 			};
-				
 			// time($(this));
+		});
+
+		//输入框
+		$("#take-num").focus(function(){
+			$(this).next().show();
+			$("#phone-num").next().hide();
+			$("#phone-code").next().hide();
+		});
+		$("#phone-num").focus(function(){
+			$("#take-num").next().hide();
+			$("#phone-code").next().hide();
+			$(this).next().show();
+		});
+		$("#phone-code").focus(function(){
+			$("#take-num").next().hide();
+			$("#phone-num").next().hide();
+			$(this).next().show();
+		});
+		// $("input[type=tel]").blur(function(){
+		// 	$(this).next().hide();
+		// });
+		$('.ui-icon-close').click(function(){
+			$(this).prev().val("");
+			$(this).hide();
 		});
 	});
    

@@ -5,7 +5,7 @@
 	<meta name="author" content="三果儿 网络科技">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<title>个人中心</title>
@@ -100,12 +100,12 @@
 		/*font-weight: 600;*/
 		height: 28px;
 		line-height: 28px;
-		padding: 9px;
+		padding: 8px;
 		display: block;
 		overflow: hidden;
 		padding-right: 10px;
 		background: url(/resources/frozenui/1.2.1/img/area_arrow.png) no-repeat right;
-		background-size: 13px;
+		background-size: 10px;
 	}
 	.menu-action:hover{
 		background:rgb(235,235,235);
@@ -143,15 +143,19 @@
 		text-decoration: none;
 	}
 	.notice_num{
-		margin-left: 10px;
-		background: #f74c31;
-		color: #fff;
-		font-size: 12px;
-		max-height: 20px;
-		max-height: 20px;
-		display: inline-block;
-		border-radius: 100%;
-		padding: 3px 2px;
+		margin-left: 5px;
+		vertical-align: inherit;
+		min-height: 1em;
+		max-height: 2em;
+		font-size: 11px;
+		padding: .15em .42em!important;
+		line-height: 1em;
+		text-align: center;
+		border-radius: 500rem;
+		background-color: #D95C5C!important;
+		border-color: #D95C5C!important;
+		color: #FFF!important;
+		/*display: inline-block;*/
 	}
 	</style>
 	
@@ -189,7 +193,12 @@
 			</div>
 			<div class="menu-box1">
 			<a href="/index.php/share/notice" class="notice menu-action ui-border-b" >
-				<img src="/resources/frozenui/1.2.1/img/area_icon_msg.png"><span>通知</span><span class="notice_num"><?=$notice_num?></span>
+				<img src="/resources/frozenui/1.2.1/img/area_icon_msg.png"><span>通知</span>
+				<?php if (isset($notice_num) && $notice_num>0) {
+					echo '<span class="notice_num">'.$notice_num.'</span>';
+				}
+				?>
+				
 			</a>
 			<div class="hr ui-border-b"></div>
 			<a href="/index.php/share/share_friends" class="menu-action send-friend " >

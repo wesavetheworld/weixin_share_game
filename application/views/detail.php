@@ -5,7 +5,7 @@
 	<meta name="author" content="三果儿 网络科技">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<title>文章详情</title>
@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/animate.css">
 	
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-	<script src="http://api.map.baidu.com/components?ak=V3uP6shwN37QW70gPZGCsfGy&v=1.0"></script>
+<!-- 	// <script src="http://api.map.baidu.com/components?ak=V3uP6shwN37QW70gPZGCsfGy&v=1.0"></script> -->
 	<style type="text/css">
 	/*重置 开始*/
 	html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,a,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,textarea,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin:0; padding:0; border:0; outline:0; vertical-align:baseline; background:transparent; font-size:100%;}
@@ -36,10 +36,12 @@
 		min-width: 296px;
 		-webkit-text-size-adjust: none;
 		background: #eee;
+		max-width: 780px;
+		margin: 0px auto;
 	}
 
 	.detail-container{
-		max-width: 780px;
+		max-width: 100%;
 		margin: 0px auto;
 		background-color: #FFF;
 	}
@@ -173,26 +175,12 @@
 		/*color: #444!important;*/
 		color: #49b7e8 !important;
 	}
-	@media only screen  and (min-device-width : 220px)  and (max-device-width : 360px) {
-		.read-num{
-			margin-right: 2px!important;		
-		}
-		.share-num{
-		  margin-right: 5px!important;
-		}
-		.author-avatar{
-			margin-left:5px!important;
-		}
-		.my-box{
-			margin-left: 0px!important;
-		}
-		
-}
+	
 	.detail-content{
 		padding: 15px;
 	}
 	.i-like{
-		margin-top: 20px;
+		padding: 10px 15px;
 	}
 	.i-like-left{
 		float: left;
@@ -399,16 +387,34 @@
 	.fanUp img {
   		width: 40px;
 	}
-	.detail-content p{
+
+	.detail-content img,.detail-content p,.detail-content div,.detail-content span,.detail-content section{
 		max-width: 100%!important;
+		overflow: hidden!important;
+	}
+	.share-img-box{
+		display: none;
+		 position: fixed;
+    	text-align: right;
+    	background: rgba(0,0,0,.8);
+    	width: 100%;
+    	height: 100%;
+    	z-index: 100;
+    	display: none;
+	}
+	.share-img-box img{
+		width:90%;
 	}
 	</style>
 </head>
 <body ontouchstart="">
+	<div class="share-img-box">
+		<img src="/resources/frozenui/1.2.1/img/share-bg.png">
+	</div>
 	<div class="detail-container">
 		<div class="top-banner">
 			<div class="tb-left">随时随地转发，轻轻松松赚钱！</div>
-			<div class="tb-right">我也参加</div>
+			<div class="tb-right"><a href="/index.php">我也参加</a></div>
 			<div class="clear"></div>
 		</div>
 		<div class="detail-title">
@@ -441,20 +447,19 @@
 		</div>
 		<div class="detail-content">
 			<?=$article['ar_content']?>
-		
+		</div>
 		<div class="i-like">
 			<div class="i-like-left">
 				<span class="share-num"><a href="#">分享&nbsp12000+</a></span>	
 				
 			</div>
 			<div class="i-like-right">
-				<p class="i-like-img"><img src="/resources/frozenui/1.2.1/img/dt_like_yes.png"></p>
-				<p class="i-like-num">&nbsp;赞(<span>1</span>)</p>
+				<!-- <p class="i-like-img"><img src="/resources/frozenui/1.2.1/img/dt_like_yes.png"></p>
+				<p class="i-like-num">&nbsp;赞(<span>1</span>)</p> -->
 			</div>
 			<div class="clear"></div>
 		</div>
-		</div>
-		<div class="personal-center">
+		<!-- <div class="personal-center">
 			<div class="pc-left">
 				<div class="my-avator">
 					<img src='<?=$users['headimgurl']?>'>
@@ -472,8 +477,8 @@
 				<a href="/index.php/share/personal_center?o='<?=$o;?>'">个人中心</a>
 			</div>
 			<div class="clear"></div>
-		</div>
-		<div class="recommend">
+		</div> -->
+		<!-- <div class="recommend">
 			<p class="fl">精品推荐</p>
 			<p class="fr">更多精彩</p>
 			<div class="clear"></div>
@@ -487,7 +492,7 @@
 				<div class="clear"></div>
 			</li>
 			<div class="clear"></div>
-		</ul>
+		</ul> -->
 		<div class="bottom-banner">
 			<img src="/resources/frozenui/1.2.1/img/ba_Zi2.png">
 		</div>
@@ -496,7 +501,7 @@
 				<?php
 				if ($is_get=='yes') {
 					echo'<div class="self-menu">
-					<a href="" class="get-new">已收益'.$profit.'元</a>
+					<a href="javascript:;" class="get-new">已收益'.$profit.'元</a>
 					<a href="javascript:void(0)" class="share-friend ">分享好友</a>
 					</div>';
 				}else{
@@ -720,11 +725,11 @@
 	    img : "<?=$article['ar_author_pic']?>", // 分享图标
 	    TimelineTitle : "<?=$article['ar_title']?>", // 朋友圈标题
 	    FriendTitle : "<?=$article['ar_title']?>", // 朋友标题
-	    FriendDesc : '随时随地转发，轻轻松松赚钱！', // 朋友描述
+	    FriendDesc : "<?=$article['thumb']?>", // 朋友描述
 	    QQTitle : "<?=$article['ar_title']?>", // QQ标题
-	    QQDesc : '随时随地转发，轻轻松松赚钱！', // QQ描述
+	    QQDesc : "<?=$article['thumb']?>", // QQ描述
 	    WeiboTitle : "<?=$article['ar_title']?>", // Weibo标题
-	    WeiboDesc : '随时随地转发，轻轻松松赚钱！', // Weibo描述
+	    WeiboDesc : "<?=$article['thumb']?>", // Weibo描述
 	    TimelineSuccess : function(){ // 朋友圈分享成功
 	      alert('朋友圈分享成功！');
 	    },
@@ -751,21 +756,21 @@
 	</script>
 	<script src="http://static.hudongba.cn/static3/jquery-1.9.1_01.min.js"></script>
 	<script type="text/javascript">
-		var lbsGeo = document.createElement('lbs-geo');
-		lbsGeo.addEventListener("geosuccess",function(evt){ //注册
-			var addr = evt.detail.coords;
-			var address = evt.detail.address;
-			var x = addr.lng;
-			var y = addr.lat;
-			if (<?=$is_get?>=='no') {
-				// 具体位置
-				alert("地址："+address);
-				// 横纵坐标
-				alert("地理坐标："+x+','+y);
-			};
+	// 	var lbsGeo = document.createElement('lbs-geo');
+	// 	lbsGeo.addEventListener("geosuccess",function(evt){ //注册
+	// 		var addr = evt.detail.coords;
+	// 		var address = evt.detail.address;
+	// 		var x = addr.lng;
+	// 		var y = addr.lat;
+	// 		if (<?=$is_get?>=='no') {
+	// 			// 具体位置
+	// 			alert("地址："+address);
+	// 			// 横纵坐标
+	// 			alert("地理坐标："+x+','+y);
+	// 		};
 			
-		});
-	</script>
+	// 	});
+	// </script>
 	<script type="text/javascript">
 
 	var _scroollTop={
@@ -794,6 +799,14 @@
 	};
 	$(document).ready(function(){
 		_backTop();
+		var document_height = $(document).height();
+		$('.share-img-box').height(document_height);
+		$('.share-friend').click(function(){
+			$('.share-img-box').show();
+		});
+		$('.share-img-box').click(function(){
+			$(this).hide();
+		})
 	});
 	</script>
 </body>

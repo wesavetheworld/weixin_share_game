@@ -5,10 +5,10 @@
 	<meta name="author" content="三果儿 网络科技">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<title><?=$users['u_name']?>邀请你加入乐享！</title>
+	<title><?=$users['u_name']?>邀请你加入好享赚！</title>
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/frozen.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/global.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/animate.css">
@@ -92,12 +92,12 @@
 		margin-left: 8px;
 	}
 	.share-code{
-		width: 130px;
-		margin:15px auto;
+		width: 150px;
+		margin:20px auto;
 	}
 	.share-bottom-box h2{
 		text-align: center;
-		margin: 15px auto;
+		margin: 20px auto;
 	}
 	.share-code img{
 		width: 100%;
@@ -105,13 +105,29 @@
 	.clear{
 		clear:both;
 	}
+	.share-img-box{
+		display: none;
+		 position: fixed;
+    	text-align: right;
+    	background: rgba(0,0,0,.8);
+    	width: 100%;
+    	height: 100%;
+    	z-index: 100;
+    	display: none;
+	}
+	.share-img-box img{
+		width:90%;
+	}
 	</style>
 </head>
 <body ontouchstart="">
+	<div class="share-img-box">
+		<img src="/resources/frozenui/1.2.1/img/share-bg.png">
+	</div>
 	<div class="share-container">
 		<div class="share-top-box">
 			<div class="share-top-banner">
-				<img src="/resources/frozenui/1.2.1/img/topbaner.png">
+				<img src="/resources/frozenui/1.2.1/img/topbanerb.png">
 			</div>
 			<div class="share-top-btn">
 					<div class="fl">
@@ -119,7 +135,7 @@
 					</div>
 					<?php 
 						if($is_self=='yes'){
-							echo '<div class="fr ui-border-l share_friends">
+							echo '<div class="fr ui-border-l share-friends">
 									立即分享
 								</div>';
 						}else{
@@ -134,27 +150,30 @@
 			</div>
 			<div class="share-top-tip">
 				<div class="tip1">
-					<div class="inline">邀请成功可获得</div>
+					<div class="inline">邀请成功可得</div>
 					<div class="inline" style="font-size:24px;">{</div>
 					<div class="inline">
-					<p>0.5元奖励</p>
-					<p style="margin-top:3px;">小伙伴所有收益永久额外分成</p>
+					<p>1元奖励</p>
+					<p style="margin-top:3px;">小伙伴所有收益永久分成</p>
 					</div>
 				</div>
 				<div class="tip2">
-				通过此链接加入乐享+完善信息=成功邀请
+				1.分享此链接 -> 2.好友进入 = 成功邀请
 				</div>
 			</div>
 		</div>
 		<div class="share-bottom-box">
-			<h2>赶快邀请身边的小伙伴扫一扫关注乐享吧！</h2>
+			<h2>您也可以让好友直接扫描</h2>
 			<div class="share-code">
-				<img src="/resources/frozenui/1.2.1/img/sharecode.png">
+				<img id="lazy_img" data-url="<?=$code_url?>">
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="http://182.92.218.16/wv/resources/js/jquery.min.js"></script>
 	<script type="text/javascript">
+		$(function(){
+			$('#lazy_img').attr('src',$('#lazy_img').data('url'));
+		});
 	    //动态自定义分享内容
 	    //获取浏览器版本
 	    function get_broswer_info(){
@@ -357,14 +376,14 @@
 
 	  window.ShareData = {
 	    link : '<?=$share_url?>', // 链接地址
-	    img : '', // 分享图标
-	    TimelineTitle : '', // 朋友圈标题
-	    FriendTitle : '', // 朋友标题
-	    FriendDesc : '', // 朋友描述
-	    QQTitle : '', // QQ标题
-	    QQDesc : '', // QQ描述
-	    WeiboTitle : '', // Weibo标题
-	    WeiboDesc : '', // Weibo描述
+	    img : 'http://share.kejixi.com/resources/frozenui/1.2.1/img/topbaner.png', // 分享图标
+	    TimelineTitle : "<?=$users['u_name']?>邀请你加入好享赚",// 朋友圈标题
+	    FriendTitle : "<?=$users['u_name']?>邀请你加入好享赚", // 朋友标题
+	    FriendDesc : '随时随地转发，轻轻松松赚钱！', // 朋友描述
+	    QQTitle : "<?=$users['u_name']?>邀请你加入好享赚！", // QQ标题
+	    QQDesc : '随时随地转发，轻轻松松赚钱！', // QQ描述
+	    WeiboTitle :"<?=$users['u_name']?>邀请你加入好享赚！", // Weibo标题
+	    WeiboDesc : '随时随地转发，轻轻松松赚钱！', // Weibo描述
 	    TimelineSuccess : function(){ // 朋友圈分享成功
 	      alert('朋友圈分享成功！');
 	    },
@@ -390,6 +409,14 @@
 	}
 	$(document).ready(function(){
 		 reset_weixin_share();
+		 var document_height = $(document).height();
+		 $('.share-img-box').height(document_height);
+		 $('.share-friends').click(function(){
+		 	$('.share-img-box').show();
+		 });
+		 $('.share-img-box').click(function(){
+		 	$(this).hide();
+		 })
 	})
 	</script>
 </body>

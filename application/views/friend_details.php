@@ -5,10 +5,10 @@
 	<meta name="author" content="三果儿 网络科技">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<title>文章详情</title>
+	<title>邀请收益</title>
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/frozen.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/global.css">
 	<link rel="stylesheet" type="text/css" href="/resources/frozenui/1.2.1/css/animate.css">
@@ -77,6 +77,7 @@
 	}
 	.details-list-title{
 		font-size: 16px;
+		max-width: 250px;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		-o-text-overflow: ellipsis;
@@ -110,7 +111,7 @@
 	<div class="share-details-container">
 		<ul class="share-details-ul">
 			<li class="details-total-num ui-border-b">
-				您的邀请收益总计<?=$child_total_profit?>元
+				您的邀请收益总计 <?=$child_total_profit?>元
 			</li>
 			<?php 
 			foreach ($friend_work  as $value) {

@@ -90,6 +90,33 @@
 		text-align: center;
 		color:#D3E4EB;
 	}
+	#spin_logo {
+  -moz-animation: spin 2s ease-out 1s 1 ;
+  -o-animation: spin 2s ease-out 1s 1 ;
+  -webkit-animation: spin 2s ease-out 1s 1 ;
+  animation: spin 2s ease-out 1s 1 ;
+}
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+  0% { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); }
+}
+@-ms-keyframes spin {
+  0% { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 	/*.num{
 		display: none;
 	}*/
@@ -99,9 +126,9 @@
 	<div class="index-container">
 		<div class="baner-pic">
 			<!-- <img src="/resources/frozenui/1.2.1/img/banner1-1.png"> -->
-			<img src="/resources/frozenui/1.2.1/img/logo.png">
+			<img id="spin_logo" src="/resources/frozenui/1.2.1/img/logo.png">
 		</div>
-		<h1><img src="/resources/frozenui/1.2.1/img/banner1-21.png"></h1>
+		<h1><img src="/resources/frozenui/1.2.1/img/banner_enpeia.png"></h1>
 		<!-- <h4>随时随地转发，轻轻松松赚钱！</h4> -->
 		<div class="join-number"><img src="/resources/frozenui/1.2.1/img/banner3-1.png"><span class="num">100</span></div>
 		<div id="day"><div></div></div>
@@ -111,7 +138,7 @@
 		</div>
 		<div class="rule"><a href="">活动规则</a></div>
 		<div class="copy-right">
-			<p>©乐享&nbsp2015</p>
+			<p>©好享赚&nbsp2015</p>
 			<p><a href="http://dwz.cn/HNVPN">三果儿科技</a>&nbsp版权所有</p>
 		</div>
 	</div>
